@@ -3,8 +3,11 @@ DedeCMSV6系统基于PHP+MySQL开发，同时数据库支持SQLite3用于本地�
 
 ## 推荐运行环境
 1.操作系统：Linux、Windows、OpenBSD
+
 2.PHP：PHP7.2+
+
 3.MySQL：MySQL5+
+
 5.Web服务器：Nginx、Apache、IIS
 
 ## 开发环境
@@ -15,7 +18,9 @@ DedeCMSV6系统基于PHP+MySQL开发，同时数据库支持SQLite3用于本地�
 
 ### 安装PHP环境
 下载对应的版本，解下压缩文件，我们可以将解压的压缩文件目录，例如`D:\apps\php`添加到系统环境PATH变量中去。
+
 复制`php.ini-development`文件名为`php.ini`，修改这个`php.ini`文件。
+
 我们需要保证开启几个DedeCMSV6系统需要的基本组件。
 ```
 extension_dir = "ext" ;由于是Windows环境，设定下载扩展目录
@@ -36,19 +41,24 @@ extension=sqlite3 ;开发环境下的SQLite3数据库
 
 ### 安装Nginx
 执行命令`sudo apt install nginx`，系统将会自动安装Nginx服务器。通过执行`systemctl status nginx`可以查看Nginx服务运行状态。
+
 如果你的服务器环境启用了防火墙，可以执行`sudo ufw allow proto tcp from any to any port 80,443`来允许80、443端口访问站点。
 
 ### 安装PHP
 执行命令`sudo apt install php php-cli php-fpm php-json php-mysql php-zip php-gd php-curl php-sqlite3 php-sockets`来安装PHP及相关组件。
+
 系统默认会安装PHP7.4版本，运行`systemctl status php7.4-fpm.service`查看PHP服务运行情况。
 
 ### 安装MySQL
 执行命令`sudo apt install mysql-server`安装MySQL服务，同样，通过`systemctl status mysql`也能够查看服务运行情况。
+
 执行命令`sudo mysql_secure_installation`根据提示初始化数据库，如果希望了解更为详细的步骤，可以[尝试通过搜索引擎了解](https://www.baidu.com/s?wd=ubuntu%2020.04%20%E5%AE%89%E8%A3%85mysql)。
 
 ### 配置站点
 我们先创建一个PHP环境的Web站点，可以在系统目录`/var/www`下创建一个名为`DedeCMSV6`的文件夹。
+
 修改`/etc/nginx/sites-available/default`文件。
+
 配置如下：
 ```
 server {
